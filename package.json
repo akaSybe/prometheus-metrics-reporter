@@ -1,0 +1,30 @@
+{
+  "name": "prometheus-metrics",
+  "version": "0.0.0-development",
+  "description": "Generate file with prometheus-friendly metrics based on config",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akaSybe/prometheus-metrics.git"
+  },
+  "keywords": [
+    "prometheus",
+    "metrics"
+  ],
+  "author": "Aleksandr Shestakov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akaSybe/prometheus-metrics/issues"
+  },
+  "homepage": "https://github.com/akaSybe/prometheus-metrics#readme",
+  "devDependencies": {
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1",
+    "semantic-release": "^17.0.4"
+  }
+}
