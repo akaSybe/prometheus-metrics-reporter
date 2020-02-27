@@ -11,7 +11,7 @@ install:
 
 stages:
   - test
-  - release
+  #- release
 
 jobs:
   include:
@@ -19,8 +19,8 @@ jobs:
       name: "tests"
       script:
         - npm run test
-    - stage: release
-      name: "release"
-      if: branch = master
-      script:
-        - npm run semantic-release
+    #- stage: release
+    #  name: "release"
+    #  if: branch = master
+    #  script:
+    #    - npm run semantic-release
