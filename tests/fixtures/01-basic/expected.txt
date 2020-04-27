@@ -1,0 +1,5 @@
+# HELP bundle_size_bytes_total help
+# TYPE bundle_size_bytes_total histogram
+bundle_size_bytes_total_bucket{le="+Inf",compression="gzip",type="javascript",project="x"} 1
+bundle_size_bytes_total_sum{compression="gzip",type="javascript",project="x"} 82
+bundle_size_bytes_total_count{compression="gzip",type="javascript",project="x"} 1
