@@ -28,7 +28,7 @@ const reporter = (tasks, options) => {
     if (task.type === "size") {
       const paths = glob.sync(task.path, { cwd: options && options.cwd, absolute: true });
       if (!paths.length) {
-        error(`There is no matching file for ${file.path} in ${process.cwd()}`, {
+        error(`There is no matching files for ${task.path} in ${process.cwd()}`, {
           silent: true,
         });
       } else {
