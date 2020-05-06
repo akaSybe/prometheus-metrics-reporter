@@ -1,32 +1,30 @@
 const fs = require("fs");
 const path = require("path");
 
-const { warn, error } = require("prettycli");
+const { error } = require("prettycli");
 const glob = require("glob");
 const client = require("prom-client");
-const registry = new client.Registry();
 
 const compressedSize = require("./compressed-size");
 
 const METRIC_DEFAULT_NAME = "bundle_size_bytes_total";
 
 const reporter = (tasks, options) => {
+  const registry = new client.Registry();
+
   for (task of tasks) {
+    // TODO: validate compression
     const metricName = task.metricName || METRIC_DEFAULT_NAME;
 
     if (!task.labels.compression) {
       task.labels.compression = "gzip";
     }
 
-    if (!task.labels.type) {
-      task.labels.type = "none";
-    }
-
     const compression = task.labels.compression;
 
     // built-in task type
     if (task.type === "size") {
-      const paths = glob.sync(task.path, { cwd: options && options.cwd, absolute: true });
+      const paths = glob.sync(task.path, { cwd: options.cwd, absolute: true });
       if (!paths.length) {
         error(`There is no matching files for ${task.path} in ${process.cwd()}`, {
           silent: true,
@@ -38,13 +36,16 @@ const reporter = (tasks, options) => {
           files.push({ path, size, compression });
         });
 
-        const histogram = new client.Histogram({
-          name: metricName,
-          help: task.metricHelp || "help",
-          labelNames: Object.keys(task.labels),
-          registers: [registry],
-          buckets: [],
-        });
+        let metric = registry.getSingleMetric(metricName);
+
+        if (!metric) {
+          metric = new client.Gauge({
+            name: metricName,
+            help: task.metricHelp || "help",
+            labelNames: Object.keys(task.labels),
+            registers: [registry],
+          });
+        }
 
         // calculate total size of all files matching glob
         const size = files.reduce((acc, file) => {
@@ -52,7 +53,9 @@ const reporter = (tasks, options) => {
           return acc;
         }, 0);
 
-        histogram.observe(task.labels, size);
+        // TODO: validate labels and throw error if labels
+        // in different tasks with the same name are not equal
+        metric.set(task.labels, size);
       }
     } else {
       // custom task type

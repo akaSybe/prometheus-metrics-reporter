@@ -7,9 +7,8 @@ module.exports = {
       labels: {
         compression: "gzip",
         type: "javascript",
-        project: "x",
+        project: "project1",
       },
-      // metricName: "bundle_size_bytes_total", // default
     },
     {
       type: "size",
@@ -17,9 +16,8 @@ module.exports = {
       labels: {
         compression: "gzip",
         type: "css",
-        project: "x",
+        project: "project1",
       },
-      // metricName: "bundle_size_bytes_total", // default
     },
   ],
 };

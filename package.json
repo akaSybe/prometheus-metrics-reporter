@@ -22,6 +22,13 @@
     "url": "https://github.com/akaSybe/prometheus-metrics/issues"
   },
   "homepage": "https://github.com/akaSybe/prometheus-metrics#readme",
+  "dependencies": {
+    "commander": "^4.1.1",
+    "glob": "^7.1.6",
+    "gzip-size": "^5.1.1",
+    "prettycli": "^1.4.3",
+    "prom-client": "^12.0.0"
+  },
   "devDependencies": {
     "@semantic-release/git": "^9.0.0",
     "cosmiconfig": "^6.0.0",
@@ -59,12 +66,5 @@
         }
       ]
     ]
-  },
-  "dependencies": {
-    "commander": "^4.1.1",
-    "glob": "^7.1.6",
-    "gzip-size": "^5.1.1",
-    "prettycli": "^1.4.3",
-    "prom-client": "^12.0.0"
   }
 }
