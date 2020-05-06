@@ -24,6 +24,7 @@ const reporter = (tasks, options) => {
 
     // built-in task type
     if (task.type === "size") {
+      console.log(options.cwd, task.path, fs.readdirSync(options.cwd));
       const paths = glob.sync(task.path, { cwd: options.cwd, absolute: true });
       if (!paths.length) {
         error(`There is no matching files for ${task.path} in ${process.cwd()}`, {
