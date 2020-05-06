@@ -24,13 +24,11 @@ const reporter = (tasks, options) => {
 
     // built-in task type
     if (task.type === "size") {
-      info("DEBUG", `${options.cwd}, ${task.path}, [${fs.readdirSync(options.cwd).join(", ")}]`);
       const paths = glob.sync(task.path, { cwd: options.cwd, absolute: true });
       if (!paths.length) {
-        continue;
-        // error(`There is no matching files for ${task.path} in ${process.cwd()}`, {
-        //   silent: true,
-        // });
+        error(`There is no matching files for ${task.path} in ${process.cwd()}`, {
+          silent: true,
+        });
       } else {
         const files = [];
         paths.map(path => {
