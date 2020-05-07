@@ -8,7 +8,7 @@ Utility to generate prometheus metrics based on tasks from config
 
 #### Install
 
-`npm install prometheus-metrics --save-dev`
+`npm install @akasybe/prometheus-metrics --save-dev`
 
 #### Create config file
 
