@@ -1,6 +1,6 @@
 {
   "name": "prometheus-metrics",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Generates prometheus metrics using tasks from config file",
   "main": "index.js",
   "bin": {
