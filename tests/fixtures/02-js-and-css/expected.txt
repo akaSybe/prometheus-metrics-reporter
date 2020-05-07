@@ -1,4 +1,4 @@
-# HELP bundle_size_bytes_total help
+# HELP bundle_size_bytes_total calculates bundle size
 # TYPE bundle_size_bytes_total gauge
 bundle_size_bytes_total{compression="gzip",type="javascript",project="project1"} 82
 bundle_size_bytes_total{compression="gzip",type="css",project="project1"} 59
