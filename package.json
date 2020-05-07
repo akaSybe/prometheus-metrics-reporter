@@ -1,8 +1,11 @@
 {
   "name": "prometheus-metrics",
-  "version": "0.0.0-development",
-  "description": "Generate file with prometheus-friendly metrics based on config",
+  "version": "0.0.1",
+  "description": "Generates prometheus metrics using tasks from config file",
   "main": "index.js",
+  "bin": {
+    "prometheus-metrics": "index.js"
+  },
   "scripts": {
     "test": "jest",
     "semantic-release": "semantic-release",
@@ -22,6 +25,10 @@
     "url": "https://github.com/akaSybe/prometheus-metrics/issues"
   },
   "homepage": "https://github.com/akaSybe/prometheus-metrics#readme",
+  "files": [
+    "lib",
+    "index.js"
+  ],
   "dependencies": {
     "commander": "^4.1.1",
     "glob": "^7.1.6",

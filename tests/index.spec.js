@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const reporter = require("../src/reporter");
+const reporter = require("../lib/reporter");
 
 describe("Tests", () => {
   it("single size task", () => {
@@ -25,7 +25,6 @@ describe("Tests", () => {
     const result = reporter(config.tasks, { cwd });
     const expected = fs.readFileSync(path.join(cwd, "expected.txt"), "utf8");
 
-    console.log(result);
     expect(result).toEqual(expected);
   });
 
