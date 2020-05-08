@@ -26,6 +26,8 @@ module.exports = {
         type: "javascript",
         project: "app",
       },
+      // optional, 'bundle_size_bytes_total` is default value
+      // metricName: "bundle_size_bytes_total"
     },
     {
       type: "custom",
@@ -47,6 +49,11 @@ module.exports = {
   ],
 };
 ```
+
+Supported 2 task types: `size` and `custom`.
+
+- Task with type `size` should have `path` as glob pattern and `labels` (these are prometheus labels)
+- Task with type `custom` should have `resolve` method that returns single `prom-client` metric
 
 #### Add script
 

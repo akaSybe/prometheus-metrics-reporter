@@ -1,5 +1,5 @@
 {
-  "name": "@akasybe/prometheus-metrics",
+  "name": "prometheus-metrics-reporter",
   "version": "1.2.0",
   "description": "Generates prometheus metrics using tasks from config file",
   "main": "index.js",
