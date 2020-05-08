@@ -2,7 +2,7 @@
 
 # prometheus-metrics
 
-Utility to generate prometheus metrics based on tasks from config
+Utility to generate prometheus metrics based on tasks from config. It's heavily using [prom-client](https://github.com/siimon/prom-client) internally.
 
 ## How to use
 
