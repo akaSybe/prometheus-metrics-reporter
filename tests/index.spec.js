@@ -8,7 +8,7 @@ describe("Tests", () => {
     const dir = "fixtures/01-basic";
     const cwd = path.resolve(__dirname, dir);
 
-    const config = require(path.join(cwd, "metrics.config"));
+    const config = require(path.join(cwd, "metrics.config.js"));
 
     const result = reporter(config.tasks, { cwd });
     const expected = fs.readFileSync(path.join(cwd, "expected.txt"), "utf8");
@@ -20,7 +20,7 @@ describe("Tests", () => {
     const dir = "fixtures/02-js-and-css";
     const cwd = path.resolve(__dirname, dir);
 
-    const config = require(path.join(cwd, "metrics.config"));
+    const config = require(path.join(cwd, "metrics.config.js"));
 
     const result = reporter(config.tasks, { cwd });
     const expected = fs.readFileSync(path.join(cwd, "expected.txt"), "utf8");
@@ -43,4 +43,16 @@ describe("Tests", () => {
   // it("should use gzip compression by default", () => {
   //   // TODO
   // });
+
+  it("should correctly process custom type task", () => {
+    const dir = "fixtures/03-custom";
+    const cwd = path.resolve(__dirname, dir);
+
+    const config = require(path.join(cwd, "metrics.config.js"));
+
+    const result = reporter(config.tasks, { cwd });
+    const expected = fs.readFileSync(path.join(cwd, "expected.txt"), "utf8");
+
+    expect(result).toEqual(expected);
+  });
 });
