@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/akaSybe/prometheus-metrics.svg?branch=master)](https://travis-ci.org/akaSybe/prometheus-metrics)
+[![Build Status](https://travis-ci.org/akaSybe/prometheus-metrics-reporter.svg?branch=master)](https://travis-ci.org/akaSybe/prometheus-metrics-reporter)
 
 # prometheus-metrics
 
@@ -8,7 +8,7 @@ Utility to generate prometheus metrics based on tasks from config
 
 #### Install
 
-`npm install @akasybe/prometheus-metrics --save-dev`
+`npm install prometheus-metrics-reporter --save-dev`
 
 #### Create config file
 
